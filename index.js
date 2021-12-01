@@ -1,7 +1,5 @@
-// No Sharding
 require("./bot.js");
 
-//Sharding
 /*
 const { ShardingManager } = require("discord.js");
 

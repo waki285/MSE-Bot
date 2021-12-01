@@ -18,6 +18,18 @@ client.commands = new Collection();
 client.slash = new Collection();
 client.cooldowns = new Collection();
 
+const commandFolders = fs.readdirSync("./commands");
+
+for (const folder of commandFolders) {
+  const commandFiles = fs
+    .readdirSync(`./commands/${folder}`)
+    .filter((file) => file.endsWith(".js"));
+  for (const file of commandFiles) {
+    const command = require(`./commands/${folder}/${file}`);
+    client.commands.set(command.name, command);
+  }
+};
+
 const slashCommandFolders = fs.readdirSync("./slash");
 
 for (const folder of slashCommandFolders) {
