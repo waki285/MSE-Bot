@@ -20,7 +20,6 @@ module.exports = {
     require("../server").run(client);
     await sleep(500);
     client.user.reloadStatus = async function () {
-      //No Sharding
       const guildSize = this.client.guilds.cache.size;
       
       /*
