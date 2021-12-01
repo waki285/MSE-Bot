@@ -23,7 +23,6 @@ module.exports = {
       //No Sharding
       const guildSize = this.client.guilds.cache.size;
       
-      //Sharding
       /*
       const guildSize = await this.client.shard.fetchClientValues(
         "guilds.cache.size"
