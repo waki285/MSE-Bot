@@ -9,41 +9,10 @@ module.exports = {
    * @param {Discord.Message} message
    */
   async execute(message) {
-    const data = await message.client.dbs.get("users", {
-      id: message.author.id,
-    });
-    if (data.dekin > 1) return;
     if (message.partial) await message.fetch();
     if (message.channel.partial) await message.channel.fetch();
 
-    if (message.channel.topic)
-      require("./topicEvent").execute(message, message.channel.topic);
-
-    if (
-      message.author.bot &&
-      message.type === "THREAD_CREATED" &&
-      message.author.id === config.clientId
-    )
-      message.delete();
-
     if (message.author.bot) return;
-
-    if (message.guild) {
-      require("../modules/autoReply").execute(message);
-      require("../modules/badword").execute(message);
-      require("../modules/speech").execute(message);
-      require("../modules/deleteMuted").execute(message);
-      if (
-        ["302050872383242240", "832614051514417202"].includes(
-          message.author.id
-        ) &&
-        message.embeds[0]
-      ) {
-        require("../modules/notifications").execute(message, 1);
-      }
-    }
-
-    if (data.dekin > 0) return;
 
     if (!message.content.startsWith(config.prefix)) return;
 
@@ -116,15 +85,6 @@ module.exports = {
       if (!config.executable.admin.includes(message.author.id)) {
         return message.error(
           "🌟管理者専用コマンド",
-          "あなたはこのコマンドを実行できません"
-        );
-      }
-    }
-
-    if (command.early) {
-      if (!config.earlyDebugger.includes(message.author.id)) {
-        return message.error(
-          "🔨早期デバッガー専用コマンド",
           "あなたはこのコマンドを実行できません"
         );
       }

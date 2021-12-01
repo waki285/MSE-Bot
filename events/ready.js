@@ -30,10 +30,8 @@ module.exports = {
       this.setPresence({
         activities: [
           {
-            name: `${guildSize.reduce((a, b) => a + b)}サーバーに導入済み｜${
-              config.prefix
-            }help`,
-            type: "PLAYING",
+            name: `m#help - 〈雑談・宣伝〉💫⌇MSE`,
+            type: "COMPETING",
           },
         ],
         status: "online",
@@ -48,8 +46,8 @@ module.exports = {
       client.user.setPresence({
         activities: [
           {
-            name: `${client.guilds.cache.size}サーバーに導入済み｜${config.prefix}help`,
-            type: "PLAYING",
+            name: `m#help - 〈雑談・宣伝〉💫⌇MSE`,
+            type: "COMPETING"
           },
         ],
         status: "online",
