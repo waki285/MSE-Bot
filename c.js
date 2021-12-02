@@ -73,4 +73,6 @@ const quesP = async (query) => {
   if (ans === "n") process.exit(0);
 
   console.log(await execP(`git commit -m "${msg}"`, true));
+  console.log(chalk.blue("Task complete."))
+  process.exit(0);
 })();
