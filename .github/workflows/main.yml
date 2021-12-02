@@ -1,0 +1,32 @@
+name: npm CI 💫
+
+on: 
+  push:
+    branches:
+      - master
+      - main
+  pull_request:
+    branches: 
+      - master
+      - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Clean install 🧹
+        run: "npm ci"
+
+      - name: ESLint and prettier ✨
+        run: "npm run fix"
+        
+      - name: Commit changes 📤
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "🧹 style: Auto Format"
