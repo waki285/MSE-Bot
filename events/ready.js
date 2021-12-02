@@ -20,10 +20,8 @@ module.exports = {
     require("../server").run(client);
     await sleep(500);
     client.user.reloadStatus = async function () {
-      //No Sharding
       const guildSize = this.client.guilds.cache.size;
       
-      //Sharding
       /*
       const guildSize = await this.client.shard.fetchClientValues(
         "guilds.cache.size"
@@ -32,10 +30,8 @@ module.exports = {
       this.setPresence({
         activities: [
           {
-            name: `${guildSize.reduce((a, b) => a + b)}サーバーに導入済み｜${
-              config.prefix
-            }help`,
-            type: "PLAYING",
+            name: `m#help - 〈雑談・宣伝〉💫⌇MSE`,
+            type: "COMPETING",
           },
         ],
         status: "online",
@@ -50,8 +46,8 @@ module.exports = {
       client.user.setPresence({
         activities: [
           {
-            name: `${client.guilds.cache.size}サーバーに導入済み｜${config.prefix}help`,
-            type: "PLAYING",
+            name: `m#help - 〈雑談・宣伝〉💫⌇MSE`,
+            type: "COMPETING"
           },
         ],
         status: "online",
