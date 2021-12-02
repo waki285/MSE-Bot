@@ -20,6 +20,11 @@ jobs:
         with:
           token: ${{ secrets.PAT }}
 
+      - name: Setup Node 🔧
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+
       - name: Clean install 🧹
         run: "npm ci"
 
@@ -27,6 +32,12 @@ jobs:
         run: "npm run fix"
 
       - name: Commit changes 📤
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: "🧹 style: Auto Format"
+        run: |
+          git remote set-url origin https://github-actions:${{ secrets.PAT }@github.com/${GITHUB_REPOSITORY}
+          git config --global user.name "${GITHUB_ACTOR}"
+          git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          if (git diff --shortstat | grep '[0-9]'); then \
+            git add .; \
+            git commit -m "🧹 style: Auto Format"; \
+            git push origin HEAD:${GITHUB_REF}; \
+          fi
