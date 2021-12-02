@@ -68,7 +68,9 @@ const quesP = async (query) => {
     msg = `${emoji}${process.argv[4] ? process.argv[4] : process.argv[3]}`;
   } else msg = process.argv[2];
 
-  console.log(await execP(`git commit -m "${msg}"`, true));
-  await execP("git push origin HEAD");
+  console.log(chalk.bold("Commit message: ") + msg);
+  const ans = await quesP(chalk.magenta("Is this OK?") + chalk.bold(" (y/n)") + ": ");
+  if (ans === "n") process.exit(0);
 
+  console.log(await execP(`git commit -m "${msg}"`, true));
 })();
