@@ -1,17 +1,34 @@
 const { exec } = require("child_process");
+const { createInterface } = require("readline");
+const interface = createInterface(process.stdin, process.stdout);
+const chalk = require("chalk");
 
 /**
  * 
  * @param {string} command
+ * @param {?boolean} okErr
  * @returns {Promise<string>}
  */
-const execP = async (command) => {
+const execP = async (command, okErr) => {
   return new Promise((resolve, reject) => {
     exec(command, (err, stdout, stderr) => {
-      if (err) reject(err);
+      if (err && !okErr) reject(err); else if (err && okErr) console.log(err);
       resolve(stderr + stdout);
     })
   })
+};
+
+/** 
+ *  
+ * @param {string} query
+ * @returns {Promise<string>}
+ */
+const quesP = async (query) => {
+  return new Promise((resolve) => {
+    interface.question(query, (answer) => {
+      resolve(answer);
+    })
+  });
 }
 
 (async () => {
@@ -51,7 +68,7 @@ const execP = async (command) => {
     msg = `${emoji}${process.argv[4] ? process.argv[4] : process.argv[3]}`;
   } else msg = process.argv[2];
 
-  await execP(`git commit -m "${msg}"`)
-  execP("git push origin HEAD");
+  console.log(await execP(`git commit -m "${msg}"`, true));
+  await execP("git push origin HEAD");
 
 })();
