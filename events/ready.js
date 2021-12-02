@@ -21,7 +21,7 @@ module.exports = {
     await sleep(500);
     client.user.reloadStatus = async function () {
       const guildSize = this.client.guilds.cache.size;
-      
+
       /*
       const guildSize = await this.client.shard.fetchClientValues(
         "guilds.cache.size"
@@ -47,7 +47,7 @@ module.exports = {
         activities: [
           {
             name: `m#help - 〈雑談・宣伝〉💫⌇MSE`,
-            type: "COMPETING"
+            type: "COMPETING",
           },
         ],
         status: "online",

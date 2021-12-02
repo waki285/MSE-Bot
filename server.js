@@ -7,9 +7,11 @@ module.exports = {
    * @param {Client} client
    */
   run: function (client) {
-    http.createServer((req, res) => {
-      res.write(`Logged in as ${client.user.tag}!`);
-      res.end();
-    }).listen(8080);
-  }
+    http
+      .createServer((req, res) => {
+        res.write(`Logged in as ${client.user.tag}!`);
+        res.end();
+      })
+      .listen(8080);
+  },
 };

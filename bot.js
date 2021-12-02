@@ -28,7 +28,7 @@ for (const folder of commandFolders) {
     const command = require(`./commands/${folder}/${file}`);
     client.commands.set(command.name, command);
   }
-};
+}
 
 const slashCommandFolders = fs.readdirSync("./slash");
 
@@ -62,10 +62,6 @@ process.on("uncaughtException", (e) => {
   client.channels
     .fetch(config.errorLog)
     .then((x) =>
-      x.send(
-        `\`\`\`js\n${require("util")
-          .inspect(e)
-          .slice(0, 1800)}\n\`\`\``
-      )
+      x.send(`\`\`\`js\n${require("util").inspect(e).slice(0, 1800)}\n\`\`\``)
     );
 });

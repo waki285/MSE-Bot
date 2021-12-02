@@ -1,21 +1,21 @@
 module.exports = {
-  "env": {
-    "browser": true,
-    "commonjs": true,
-    "es2021": true
+  env: {
+    browser: true,
+    commonjs: true,
+    es2021: true,
   },
-  "extends": [
+  extends: [
     "eslint:recommended",
     "plugin:node/recommended",
-    "plugin:jsdoc/recommended"
+    "plugin:jsdoc/recommended",
   ],
-  "parserOptions": {
-    "ecmaVersion": "latest",
-    "es2021": true,
-    "node": true
+  parserOptions: {
+    ecmaVersion: "latest",
+    es2021: true,
+    node: true,
   },
-  "rules": {
-    "semi": [1, "always"],
+  rules: {
+    semi: [1, "always"],
     "no-unused-vars": [0],
     "jsdoc/require-returns": [0],
     "jsdoc/require-param-description": [0],
@@ -28,6 +28,6 @@ module.exports = {
     "no-inner-declarations": [1],
     "no-useless-escape": [1],
     "no-empty": [2],
-    "no-constant-condition": [0]
-  }
+    "no-constant-condition": [0],
+  },
 };

@@ -1,5 +1,5 @@
 const { Client, ClientApplication } = require("discord.js");
-const { SlashCommandBuilder } = require("@discordjs/builders")
+const { SlashCommandBuilder } = require("@discordjs/builders");
 
 const command = new SlashCommandBuilder()
   .setName("ping")
@@ -13,5 +13,5 @@ const command = new SlashCommandBuilder()
 
   await client.application.commands.create(command, process.argv[2]);
 
-  console.log("Registration Success!")
-})()
+  console.log("Registration Success!");
+})();

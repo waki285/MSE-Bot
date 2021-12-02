@@ -1,12 +1,12 @@
 name: npm CI 💫
 
-on: 
+on:
   push:
     branches:
       - master
       - main
   pull_request:
-    branches: 
+    branches:
       - master
       - main
 
@@ -25,7 +25,7 @@ jobs:
 
       - name: ESLint and prettier ✨
         run: "npm run fix"
-        
+
       - name: Commit changes 📤
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
