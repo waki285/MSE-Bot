@@ -37,6 +37,7 @@ jobs:
           git config --global user.name "${GITHUB_ACTOR}"
           git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
           if (git diff --shortstat | grep '[0-9]'); then \
+            git pull; \
             git add .; \
             git commit -m "🧹 style: Auto Format"; \
             git push origin HEAD:${GITHUB_REF}; \
