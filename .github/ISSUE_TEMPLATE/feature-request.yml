@@ -1,6 +1,7 @@
 name: Feature request
 description: Request a new feature
-labels:
+title: "feat: (fill in)"
+labels: 
   - ✨ features
   - 🟡 repro needed
 body:

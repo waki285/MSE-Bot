@@ -5,36 +5,36 @@ labels:
   - "🐛 bug"
   - "🟡 repro needed"
 body:
-  - type: textarea
-    attributes:
-      label: What did you do?
-      description: |
-        Enter here what you have tried. You can use Markdown in this field.
-      value: |
-        <!-- Type this area... -->
-    validations:
-      required: true
-  - type: textarea
-    attributes:
-      label: What did you expect to happen?
-      description: |
-        You can use Markdown in this field.
-    validations:
-      required: true
-  - type: textarea
-    attributes:
-      label: What actually happened?
-      description: |
-        Please copy-paste developers' error message or screenshot.
-    validations:
-      required: true
-  - type: checkboxes
-    attributes:
-      label: Participation
-      options:
-        - label: I am willing to submit a pull request for this issue.
-          required: false
-  - type: textarea
-    attributes:
-      label: Additional comments
-      description: Is there anything else that's important for the team to know?
+- type: textarea
+  attributes:
+    label: What did you do?
+    description: |
+      Enter here what you have tried. You can use Markdown in this field.
+    value: |
+      <!-- Type this area... -->
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: What did you expect to happen?
+    description: |
+      You can use Markdown in this field.
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: What actually happened?
+    description: |
+      Please copy-paste developers' error message or screenshot.
+  validations:
+    required: true
+- type: checkboxes
+  attributes:
+    label: Participation
+    options:
+      - label: I am willing to submit a pull request for this issue.
+        required: false
+- type: textarea
+  attributes:
+    label: Additional comments
+    description: Is there anything else that's important for the team to know?
