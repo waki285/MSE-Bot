@@ -1,6 +1,6 @@
 name: Feature request
 description: Request a new feature
-labels: 
+labels:
   - ✨ features
   - 🟡 repro needed
 body:
