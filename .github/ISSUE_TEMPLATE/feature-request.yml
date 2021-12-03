@@ -31,6 +31,7 @@ body:
       label: Participation
       options:
         - label: I am willing to submit a pull request for this issue.
+    validations:
       required: false
   - type: textarea
     id: additional-context
