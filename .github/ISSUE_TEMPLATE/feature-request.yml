@@ -26,6 +26,7 @@ body:
       label: Alternative solutions or implementations
       description: A clear and concise description of any alternative solutions or features you have considered.
   - type: checkboxes
+    id: participating
     attributes:
       label: Participation
       options:
