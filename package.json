@@ -20,7 +20,7 @@
     "eslint-plugin-node": "^11.1.0",
     "node": "^16.13.0",
     "npm": "^8.2.0",
-    "prettier": "^2.4.1"
+    "prettier": "^2.5.1"
   },
   "engines": {
     "node": ">=16.6.0"
