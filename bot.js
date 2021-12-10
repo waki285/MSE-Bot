@@ -1,5 +1,8 @@
 const fs = require("fs");
 const { Client, Intents, Collection } = require("discord.js");
+const mongoose = require("mongoose");
+
+mongoose.connect(`mongodb+srv://suzuneu:${process.env.MONGO}@msebot.tihqh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`)
 
 const client = new Client({
   intents: Object.values(Intents.FLAGS),
@@ -17,6 +20,37 @@ const config = require("./config.json");
 client.commands = new Collection();
 client.slash = new Collection();
 client.cooldowns = new Collection();
+
+const userSchema = new mongoose.Schema({
+  id: String,
+  trip: String,
+  nickname: String
+});
+
+client.dbs = {
+  /**
+   *
+   * @param {string} dbName
+   * @param {any} data
+   */
+  get: async function(dbName, data) {
+    const d =
+      (await client.dbs[dbName].findOne(data)) || new client.dbs[dbName]();
+    return d;
+  },
+  /**
+   *
+   * @param {string} dbName
+   * @param {any} keyData
+   * @param {any} data
+   */
+  set: async function(dbName, keyData, data) {
+    const d = await client.dbs.get(dbName, keyData);
+    Object.keys(data).forEach((a, i) => (d[a] = Object.values(data)[i]));
+    d.save();
+  },
+  users: mongoose.model("user", userSchema),
+};
 
 const commandFolders = fs.readdirSync("./commands");
 
