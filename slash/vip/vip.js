@@ -46,11 +46,16 @@ module.exports = {
       data.id = i.user.id;
       data.trip = kansei;
       await data.save();
-      i.reply({ embeds: [{
-        title: "🆔Trip",
-        description: `✅トリップを設定しました。\nあなたのトリップは\`${kansei}\`です。\n**トリップの生成に使った鍵を共有しないでください！**`,
-        color: 0x04ff00
-      }], ephemeral: true });
+      i.reply({
+        embeds: [
+          {
+            title: "🆔Trip",
+            description: `✅トリップを設定しました。\nあなたのトリップは\`${kansei}\`です。\n**トリップの生成に使った鍵を共有しないでください！**`,
+            color: 0x04ff00,
+          },
+        ],
+        ephemeral: true,
+      });
     }
   },
 };
