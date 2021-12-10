@@ -58,7 +58,8 @@ module.exports = {
       });
     } else if (sub === "nickname") {
       const name = options.getString("name");
-      if (name.length > 32) return i.error("🆔ニックネーム", "32文字を超えています")
+      if (name.length > 32)
+        return i.error("🆔ニックネーム", "32文字を超えています");
       const data = await client.dbs.get("users", { id: i.user.id });
       data.id = i.user.id;
       data.nickname = name;
