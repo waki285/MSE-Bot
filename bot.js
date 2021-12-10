@@ -2,7 +2,9 @@ const fs = require("fs");
 const { Client, Intents, Collection } = require("discord.js");
 const mongoose = require("mongoose");
 
-mongoose.connect(`mongodb+srv://suzuneu:${process.env.MONGO}@msebot.tihqh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`)
+mongoose.connect(
+  `mongodb+srv://suzuneu:${process.env.MONGO}@msebot.tihqh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
+);
 
 const client = new Client({
   intents: Object.values(Intents.FLAGS),
@@ -24,7 +26,7 @@ client.cooldowns = new Collection();
 const userSchema = new mongoose.Schema({
   id: String,
   trip: String,
-  nickname: String
+  nickname: String,
 });
 
 client.dbs = {
@@ -33,7 +35,7 @@ client.dbs = {
    * @param {string} dbName
    * @param {any} data
    */
-  get: async function(dbName, data) {
+  get: async function (dbName, data) {
     const d =
       (await client.dbs[dbName].findOne(data)) || new client.dbs[dbName]();
     return d;
@@ -44,7 +46,7 @@ client.dbs = {
    * @param {any} keyData
    * @param {any} data
    */
-  set: async function(dbName, keyData, data) {
+  set: async function (dbName, keyData, data) {
     const d = await client.dbs.get(dbName, keyData);
     Object.keys(data).forEach((a, i) => (d[a] = Object.values(data)[i]));
     d.save();
