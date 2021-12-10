@@ -1,8 +1,12 @@
-const { CommandInteraction, CommandInteractionOptionResolver, Client } = require("discord.js");
-const { exec:execCallback } = require("child_process");
+const {
+  CommandInteraction,
+  CommandInteractionOptionResolver,
+  Client,
+} = require("discord.js");
+const { exec: execCallback } = require("child_process");
 
 /**
- * 
+ *
  * @param {string} command
  * @returns {Promise<string>}
  */
@@ -11,23 +15,24 @@ const exec = async (command) => {
     execCallback(command, (err, stdout, stderr) => {
       if (err) reject(err);
       resolve(stderr + stdout);
-    })
-  })
+    });
+  });
 };
 
 module.exports = {
   name: "vip",
-  description: "名前を設定します。設定しないと「以下、名無しに変わりましてVIPPERがお送りします」になります。",
+  description:
+    "名前を設定します。設定しないと「以下、名無しに変わりましてVIPPERがお送りします」になります。",
   category: "VIP",
   /**
-   * 
+   *
    * @param {CommandInteraction} i
    * @param {Client} client
    * @param {CommandInteractionOptionResolver} options
    */
   async execute(i, client, options) {
     /**
-     * 
+     *
      * @type {("trip" | "nickname")}
      */
     const sub = options.getSubcommand();
@@ -41,10 +46,15 @@ module.exports = {
       data.id = i.user.id;
       data.trip = kansei;
       await data.save();
-      i.reply({ embeds: [{
-        title: "🆔Trip",
-        description: `✅トリップを設定しました。\nあなたのトリップは\`${kansei}\`です。\n**トリップの生成に使った鍵を共有しないでください！**`
-      }], ephemeral: true });
+      i.reply({
+        embeds: [
+          {
+            title: "🆔Trip",
+            description: `✅トリップを設定しました。\nあなたのトリップは\`${kansei}\`です。\n**トリップの生成に使った鍵を共有しないでください！**`,
+          },
+        ],
+        ephemeral: true,
+      });
     }
-  }
-}
+  },
+};
