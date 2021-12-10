@@ -56,6 +56,23 @@ module.exports = {
         ],
         ephemeral: true,
       });
+    } else if (sub === "nickname") {
+      const name = options.getString("name");
+      if (name.length > 32) return i.error("🆔ニックネーム", "32文字を超えています")
+      const data = await client.dbs.get("users", { id: i.user.id });
+      data.id = i.user.id;
+      data.nickname = name;
+      await data.save();
+      i.reply({
+        embeds: [
+          {
+            title: "🆔ニックネーム",
+            description: `✅ニックネームを設定しました。`,
+            color: 0x04ff00,
+          },
+        ],
+        ephemeral: true,
+      });
     }
   },
 };
