@@ -18,7 +18,10 @@ module.exports = {
       require("../modules/vip").create(message);
     }
 
-    if ((message.channel instanceof Discord.ThreadChannel) && message.channel.parent.id === "912033913843630080") {
+    if (
+      message.channel instanceof Discord.ThreadChannel &&
+      message.channel.parent.id === "912033913843630080"
+    ) {
       require("../modules/vip").syori(message);
     }
 
