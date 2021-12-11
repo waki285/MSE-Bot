@@ -79,7 +79,7 @@ module.exports = {
       );
       if (jsg) {
         sendContent =
-          `[>>${msgId}](${jsg.url})` + sendContent.replace(/>>\d{1,3}/, "");
+          sendContent.replace(/>>\d{1,3}/, `[>>${msgId}](${jsg.url})`);
       }
     }
     const embed = new MessageEmbed()
