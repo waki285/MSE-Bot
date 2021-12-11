@@ -14,6 +14,14 @@ module.exports = {
 
     if (message.author.bot) return;
 
+    if (message.channel.id === "912033913843630080") {
+      require("../modules/vip").create(message);
+    }
+
+    if ((message.channel instanceof Discord.ThreadChannel) && message.channel.parent.id === "912033913843630080") {
+      require("../modules/vip").syori(message);
+    }
+
     if (!message.content.startsWith(config.prefix)) return;
 
     const args = message.content.slice(config.prefix.length).trim().split(/ +/);

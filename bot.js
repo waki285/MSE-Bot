@@ -29,6 +29,11 @@ const userSchema = new mongoose.Schema({
   nickname: String,
 });
 
+const threadSchema = new mongoose.Schema({
+  id: String,
+  owner: String
+})
+
 client.dbs = {
   /**
    *
@@ -52,6 +57,7 @@ client.dbs = {
     d.save();
   },
   users: mongoose.model("user", userSchema),
+  threads: mongoose.model("thread", threadSchema)
 };
 
 const commandFolders = fs.readdirSync("./commands");
