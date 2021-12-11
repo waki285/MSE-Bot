@@ -78,8 +78,10 @@ module.exports = {
         (x) => x.embeds[0] && x.embeds[0].title.split(":")[0] === msgId
       );
       if (jsg) {
-        sendContent =
-          sendContent.replace(/>>\d{1,3}/, `[>>${msgId}](${jsg.url})`);
+        sendContent = sendContent.replace(
+          />>\d{1,3}/,
+          `[>>${msgId}](${jsg.url})`
+        );
       }
     }
     const embed = new MessageEmbed()
