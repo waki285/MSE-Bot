@@ -96,7 +96,7 @@ module.exports = {
                 .slice(14, 24)}`
         } ${
           threadData.owner === message.author.id
-            ? "<:nushi:918845612496146522>"
+            ? "<:nushi:919785199187943474>"
             : ""
         }`
       )
