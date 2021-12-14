@@ -54,7 +54,7 @@ module.exports = {
      *
      * @type {Collection<import("discord.js").Snowflake, Message>}
      */
-    const msgs = await message.channel.messages.fetch(100);
+    const msgs = await message.channel.messages.fetch({ limit: 100 });
     /**
      *
      * @type {number}
