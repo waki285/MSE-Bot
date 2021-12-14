@@ -105,7 +105,7 @@ module.exports = {
       .setFooter(
         moment(new Date()).tz("Asia/Tokyo").format("YYYY/MM/DD HH:mm:ss")
       )
-      .setImage(message.attachments.map(x => x.url).shift())
+      .setImage(message.attachments.map((x) => x.url).shift());
     message.channel.send({ embeds: [embed] });
   },
 };
