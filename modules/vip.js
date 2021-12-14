@@ -112,14 +112,15 @@ module.exports = {
         embeds: [
           {
             title: "101: Over 100 Thread",
-            description: "このスレッドは100を超えました。\n次スレも…VIPクオリティ！！",
-            color: "RANDOM"
-          }
-        ]
+            description:
+              "このスレッドは100を超えました。\n次スレも…VIPクオリティ！！",
+            color: "RANDOM",
+          },
+        ],
       });
       await message.channel.setArchived(true);
       await message.channel.edit({
-        locked: true
+        locked: true,
       });
     }
   },
