@@ -14,7 +14,7 @@ module.exports = {
 
     if (message.channel.id === "912033913843630080" && !message.author.bot) {
       require("../modules/vip").create(message);
-      } else if (message.author.bot && message.author.id !== client.user.id) message.delete();
+      } else if (message.author.bot && message.author.id !== message.client.user.id) message.delete();
 
     if (
       message.channel instanceof Discord.ThreadChannel &&
@@ -22,7 +22,7 @@ module.exports = {
       !message.author.bot
     ) {
       require("../modules/vip").syori(message);
-    } else if (message.author.bot && message.author.id !== client.user.id) message.delete();
+    } else if (message.author.bot && message.author.id !== message.client.user.id) message.delete();
 
     if (message.author.bot) return;
 
