@@ -34,6 +34,10 @@ const threadSchema = new mongoose.Schema({
   owner: String,
 });
 
+const uwasaSchema = new mongoose.Schema({
+  uwasas: Array
+})
+
 client.dbs = {
   /**
    *
@@ -58,6 +62,7 @@ client.dbs = {
   },
   users: mongoose.model("user", userSchema),
   threads: mongoose.model("thread", threadSchema),
+  uwasa: mongoose.model("uwasa", uwasaSchema)
 };
 
 const commandFolders = fs.readdirSync("./commands");
