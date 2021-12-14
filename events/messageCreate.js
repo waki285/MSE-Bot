@@ -12,18 +12,19 @@ module.exports = {
     if (message.partial) await message.fetch();
     if (message.channel.partial) await message.channel.fetch();
 
-    if (message.author.bot) return;
-
-    if (message.channel.id === "912033913843630080") {
+    if (message.channel.id === "912033913843630080" && !message.author.bot) {
       require("../modules/vip").create(message);
-    }
+      } else if (message.author.bot && message.author.id !== client.user.id) message.delete();
 
     if (
       message.channel instanceof Discord.ThreadChannel &&
-      message.channel.parent.id === "912033913843630080"
+      message.channel.parent.id === "912033913843630080" &&
+      !message.author.bot
     ) {
       require("../modules/vip").syori(message);
-    }
+    } else if (message.author.bot && message.author.id !== client.user.id) message.delete();
+
+    if (message.author.bot) return;
 
     if (!message.content.startsWith(config.prefix)) return;
 

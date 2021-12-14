@@ -106,6 +106,21 @@ module.exports = {
         moment(new Date()).tz("Asia/Tokyo").format("YYYY/MM/DD HH:mm:ss")
       )
       .setImage(message.attachments.map((x) => x.url).shift());
-    message.channel.send({ embeds: [embed] });
+    await message.channel.send({ embeds: [embed] });
+    if (msgs.size >= 99) {
+      await message.channel.send({
+        embeds: [
+          {
+            title: "101: Over 100 Thread",
+            description: "このスレッドは100を超えました。\n次スレも…VIPクオリティ！！",
+            color: "RANDOM"
+          }
+        ]
+      });
+      await message.channel.setArchived(true);
+      await message.channel.edit({
+        locked: true
+      });
+    }
   },
 };
