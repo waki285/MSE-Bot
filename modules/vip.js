@@ -107,7 +107,7 @@ module.exports = {
       )
       .setImage(message.attachments.map((x) => x.url).shift());
     await message.channel.send({ embeds: [embed] });
-    if (msgs.size >= 99) {
+    if (msgs.size >= 100) {
       await message.channel.send({
         embeds: [
           {
