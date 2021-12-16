@@ -15,7 +15,8 @@ module.exports = {
     if (message.channel.id === "912033913843630080" && !message.author.bot) {
       require("../modules/vip").create(message);
     } else if (
-      message.channel.id === "912033913843630080" && message.author.bot &&
+      message.channel.id === "912033913843630080" &&
+      message.author.bot &&
       message.author.id !== message.client.user.id
     )
       message.delete();
@@ -28,7 +29,8 @@ module.exports = {
       require("../modules/vip").syori(message);
     } else if (
       message.channel instanceof Discord.ThreadChannel &&
-      message.channel.parent.id === "912033913843630080" && message.author.bot &&
+      message.channel.parent.id === "912033913843630080" &&
+      message.author.bot &&
       message.author.id !== message.client.user.id
     )
       message.delete();
