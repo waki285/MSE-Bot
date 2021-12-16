@@ -55,7 +55,11 @@ module.exports = {
      * @type {Collection<string, Message>}
      */
     const msgs = await message.channel.messages.fetch({ limit: 100 });
-    if (msgs.first(2)[1]　&& msgs.first(2)[1].embeds[0]?.title && msgs.first(2)[1].embeds[0].title.startsWith("101"))
+    if (
+      msgs.first(2)[1] &&
+      msgs.first(2)[1].embeds[0]?.title &&
+      msgs.first(2)[1].embeds[0].title.startsWith("101")
+    )
       return message.channel.setArchived(true);
     /**
      *
