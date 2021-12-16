@@ -52,9 +52,10 @@ module.exports = {
     await message.delete();
     /**
      *
-     * @type {Collection<import("discord.js").Snowflake, Message>}
+     * @type {Collection<string, Message>}
      */
     const msgs = await message.channel.messages.fetch({ limit: 100 });
+    if (msgs.first(2)[1].embeds[0].title.startsWith("101")) return message.channel.setArchived(true);
     /**
      *
      * @type {number}
