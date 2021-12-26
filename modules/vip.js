@@ -111,7 +111,7 @@ module.exports = {
       .setFooter(
         moment(new Date()).tz("Asia/Tokyo").format("YYYY/MM/DD HH:mm:ss")
       )
-      .setImage(message.attachments.map((x) => x.url).shift());
+      .setImage(message.attachments.map((x) => x.proxyURL).shift());
     await message.channel.send({ embeds: [embed] });
     if (msgs.size >= 100) {
       await message.channel.send({
