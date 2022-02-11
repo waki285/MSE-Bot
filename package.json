@@ -19,7 +19,7 @@
     "eslint-plugin-jsdoc": "^37.8.2",
     "eslint-plugin-node": "^11.1.0",
     "node": "^17.4.0",
-    "npm": "^8.4.1",
+    "npm": "^8.5.0",
     "prettier": "^2.5.1"
   },
   "engines": {
