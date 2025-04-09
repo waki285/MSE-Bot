@@ -16,7 +16,7 @@
   "license": "MIT",
   "devDependencies": {
     "eslint": "^7.32.0",
-    "eslint-plugin-jsdoc": "^50.6.6",
+    "eslint-plugin-jsdoc": "^50.6.9",
     "eslint-plugin-node": "^11.1.0",
     "node": "^23.11.0",
     "npm": "^11.3.0",
